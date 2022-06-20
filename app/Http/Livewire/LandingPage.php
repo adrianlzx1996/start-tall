@@ -12,6 +12,8 @@ class LandingPage extends Component
 {
 
     public $email = 'test@test.com';
+    public $showSubscribe = false;
+    public $showSuccess = false;
 
     protected $rules = [
         'email' => 'required|email:filter|unique:subscribers,email',
@@ -41,6 +43,8 @@ class LandingPage extends Component
         }, 5);
 
         $this->resetInput();
+        $this->showSubscribe = false;
+        $this->showSuccess = true;
     }
 
     public function render()

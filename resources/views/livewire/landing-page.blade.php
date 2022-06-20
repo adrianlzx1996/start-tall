@@ -35,7 +35,11 @@
             <span class="text-xs text-gray-100">
                 {{ $errors->has('email') ? $errors->first('email') : 'We will send you a confirmation email.' }}
             </span>
-            <x-button class="justify-center px-5 py-3 mt-5 bg-blue-500 w-80">Get In
+            <x-button class="justify-center px-5 py-3 mt-5 bg-blue-500 w-80">
+                <span wire:loading wire:target='subscribe' class="animate-spin">&#9696;</span>
+                <span wire:loading.remove wire:target='subscribe'>
+                    Get In
+                </span>
             </x-button>
         </form>
     </x-modal>

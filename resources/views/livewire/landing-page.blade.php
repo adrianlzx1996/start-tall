@@ -1,4 +1,4 @@
-<div class="flex flex-col w-full h-screen bg-indigo-900" x-data="{ showSubscribe: false, showSuccess: true }">
+<div class="flex flex-col w-full h-screen bg-indigo-900" x-data="{ showSubscribe: false, showSuccess: false }">
     <nav class="container flex justify-between pt-5 mx-auto text-indigo-200">
         <a href="/" class="text-4xl font-bold">
             <x-application-logo class="w-16 h-16 fill-current" />
@@ -26,33 +26,27 @@
         </div>
     </div>
 
-    <div class="fixed top-0 flex items-center w-full h-full bg-gray-900 bg-opacity-60" x-show="showSubscribe"
-        @click.self="showSubscribe = false" @keydown.escape.window="showSubscribe = false" x-transition>
-        <div class="p-8 m-auto bg-pink-500 shadow-2xl rounded-xl">
-            <p class="text-5xl font-extrabold text-center text-white">Let's do it!</p>
+    <x-modal class="bg-pink-500" trigger="showSubscribe">
+        <p class="text-5xl font-extrabold text-center text-white">Let's do it!</p>
 
-            <form action="" class="flex flex-col items-center p-24" wire:submit.prevent='subscribe'>
-                <x-input class="px-5 py-3 border border-blue-400 w-80" type="email" name="email"
-                    placeholder="Email Address" wire:model="email"></x-input>
-                <span class="text-xs text-gray-100">We will send you a confirmation email.</span>
-                <x-button class="justify-center px-5 py-3 mt-5 bg-blue-500 w-80">Get In
-                </x-button>
-            </form>
-        </div>
-    </div>
+        <form action="" class="flex flex-col items-center p-24" wire:submit.prevent='subscribe'>
+            <x-input class="px-5 py-3 border border-blue-400 w-80" type="email" name="email"
+                placeholder="Email Address" wire:model="email"></x-input>
+            <span class="text-xs text-gray-100">We will send you a confirmation email.</span>
+            <x-button class="justify-center px-5 py-3 mt-5 bg-blue-500 w-80">Get In
+            </x-button>
+        </form>
+    </x-modal>
 
-    <div class="fixed top-0 flex items-center w-full h-full bg-gray-900 bg-opacity-60" x-show="showSuccess"
-        @click.self="showSuccess = false" @keydown.escape.window="showSuccess = false" x-transition>
-        <div class="p-8 m-auto bg-green-500 shadow-2xl rounded-xl">
-            <p class="font-extrabold text-center text-white animate-pulse text-9xl">
-                &check;
-            </p>
-            <p class="mt-16 text-5xl font-extrabold text-center text-white">
-                Great!
-            </p>
-            <p class="text-3xl text-center text-white">
-                See you in your inbox.
-            </p>
-        </div>
-    </div>
+    <x-modal class="bg-green-500" trigger="showSuccess">
+        <p class="font-extrabold text-center text-white animate-pulse text-9xl">
+            &check;
+        </p>
+        <p class="mt-16 text-5xl font-extrabold text-center text-white">
+            Great!
+        </p>
+        <p class="text-3xl text-center text-white">
+            See you in your inbox.
+        </p>
+    </x-modal>
 </div>

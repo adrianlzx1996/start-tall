@@ -1,4 +1,4 @@
-<div class="flex flex-col w-full h-screen bg-indigo-900" x-data="{ showSubscribe: false, }">
+<div class="flex flex-col w-full h-screen bg-indigo-900" x-data="{ showSubscribe: false, showSuccess: true }">
     <nav class="container flex justify-between pt-5 mx-auto text-indigo-200">
         <a href="/" class="text-4xl font-bold">
             <x-application-logo class="w-16 h-16 fill-current" />
@@ -38,6 +38,21 @@
                 <x-button class="justify-center px-5 py-3 mt-5 bg-blue-500 w-80">Get In
                 </x-button>
             </form>
+        </div>
+    </div>
+
+    <div class="fixed top-0 flex items-center w-full h-full bg-gray-900 bg-opacity-60" x-show="showSuccess"
+        @click.self="showSuccess = false" @keydown.escape.window="showSuccess = false" x-transition>
+        <div class="p-8 m-auto bg-green-500 shadow-2xl rounded-xl">
+            <p class="font-extrabold text-center text-white animate-pulse text-9xl">
+                &check;
+            </p>
+            <p class="mt-16 text-5xl font-extrabold text-center text-white">
+                Great!
+            </p>
+            <p class="text-3xl text-center text-white">
+                See you in your inbox.
+            </p>
         </div>
     </div>
 </div>

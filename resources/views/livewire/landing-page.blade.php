@@ -31,7 +31,7 @@
 
         <form action="" class="flex flex-col items-center p-24" wire:submit.prevent='subscribe'>
             <x-input class="px-5 py-3 border border-blue-400 w-80" type="email" name="email"
-                placeholder="Email Address" wire:model="email"></x-input>
+                placeholder="Email Address" wire:model.defer="email"></x-input>
             <span class="text-xs text-gray-100">
                 {{ $errors->has('email') ? $errors->first('email') : 'We will send you a confirmation email.' }}
             </span>

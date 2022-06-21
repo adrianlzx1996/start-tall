@@ -21,41 +21,41 @@
                         </div>
                     @else
                         <table class="w-full">
-                            <thead>
+                            <thead class="text-indigo-600 border-b-2 border-gray-300">
                                 <tr>
-                                    <th class="px-4 py-2 border">
+                                    <th class="px-6 py-3 text-left">
                                         Email
                                     </th>
-                                    <th class="px-4 py-2 border">
-                                        Created At
+                                    <th class="px-6 py-3 text-left">
+                                        Verified
                                     </th>
-                                    <th class="px-4 py-2 border">
+                                    {{-- <th class="px-4 py-2 border">
                                         Actions
-                                    </th>
+                                    </th> --}}
                             </thead>
                             <tbody>
                                 @foreach ($subscribers as $subscriber)
-                                    <tr>
-                                        <td class="px-4 py-2 border">
+                                    <tr class="text-sm text-indigo-900 border-b">
+                                        <td class="px-6 py-4">
                                             {{ $subscriber->email }}
                                         </td>
-                                        <td class="px-4 py-2 border">
-                                            {{ $subscriber->created_at->format('d/m/Y') }}
+                                        <td class="px-6 py-4">
+                                            {{ optional($subscriber->email_verified_at)->diffForHumans() ?? 'Never' }}
                                         </td>
-                                        <td class="px-4 py-2 border">
-                                            {{-- <a href="{{ route('subscribers.edit', $subscriber->id) }}"
-                                                class="text-blue-500 hover:underline"> --}}
-                                            Edit
-                                            {{-- </a> --}}
-                                            {{-- <form action="{{ route('subscribers.destroy', $subscriber->id) }}"
-                                                method="POST" class="inline-block"> --}}
-                                            {{-- @csrf --}}
-                                            {{-- @method('DELETE') --}}
-                                            <button type="submit" class="text-red-500 hover:underline">
-                                                Delete
-                                            </button>
-                                            {{-- </form> --}}
-                                        </td>
+                                        {{-- <td class="px-4 py-2 border">
+                                            <a href="{{ route('subscribers.edit', $subscriber->id) }}"
+                                                class="text-blue-500 hover:underline">
+                                                Edit
+                                            </a>
+                                            <form action="{{ route('subscribers.destroy', $subscriber->id) }}"
+                                                method="POST" class="inline-block">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="text-red-500 hover:underline">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </td> --}}
                                     </tr>
                                 @endforeach
                         </table>

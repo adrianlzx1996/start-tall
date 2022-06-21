@@ -745,6 +745,9 @@ select {
 .z-50 {
   z-index: 50;
 }
+.float-right {
+  float: right;
+}
 .m-auto {
   margin: auto;
 }
@@ -1231,6 +1234,9 @@ select {
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pl-8 {
+  padding-left: 2rem;
 }
 .text-left {
   text-align: left;
